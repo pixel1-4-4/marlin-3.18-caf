@@ -99,12 +99,10 @@ module_param(fpsimd_settings, int, 0644);
 
 void fpsimd_settings_enable(void)
 {
-	set_app_setting_bit(FP_SIMD_BIT);
 }
 
 void fpsimd_settings_disable(void)
 {
-	clear_app_setting_bit(FP_SIMD_BIT);
 }
 
 /*
