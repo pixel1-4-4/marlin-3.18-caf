@@ -1,4 +1,4 @@
-/* Copyright (c) 2015-2017, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2015-2016, The Linux Foundation. All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -415,7 +415,7 @@
 };
 
 &pcie2 {
-	/delete-property/ qcom,boot-option;
+	/delete-property/ qcom,ep-wakeirq;
 };
 
 &pm8994_mpps {
@@ -545,7 +545,7 @@
 	};
 
 	sound-9335 {
-		qcom,model = "msm8996-tasha-sbc-snd-card";
+		qcom,model = "msm8996-tasha-db-snd-card";
 
 		qcom,audio-routing =
 			"RX_BIAS", "MCLK",
@@ -620,10 +620,6 @@
 				linux,default-trigger =
 					"none";
 			};
-		};
-
-		qcom,power-on@800 {
-			qcom,pon-reset-off;
 		};
 	};
 
@@ -803,18 +799,6 @@
 	status = "ok";
 };
 
-&spi_0 {
-	status = "ok";
-};
-
-&i2c_12 {
-	status = "disabled";
-};
-
-&spi_12 {
-	status = "ok";
-};
-
 &slim_msm {
 	tasha_codec {
 		qcom,cdc-micbias1-ext-cap;
@@ -837,13 +821,13 @@
 
 &cam_sensor_mclk1_active { /* MCLK1 */
 	config {
-		drive-strength = <4>; /* 4 MA */
+		drive-strength = <8>; /* 8 MA */
 	};
 };
 
 &cam_sensor_mclk1_suspend { /* MCLK1 */
 	config {
-		drive-strength = <4>; /* 4 MA */
+		drive-strength = <8>; /* 8 MA */
 	};
 };
 
@@ -857,10 +841,4 @@
 	config {
 		drive-strength = <8>; /* 8 MA */
 	};
-};
-
-&wil6210 {
-	status = "ok";
-	/delete-property/ qcom,wigig-en;
-	/delete-property/ qcom,sleep-clk-en;
 };

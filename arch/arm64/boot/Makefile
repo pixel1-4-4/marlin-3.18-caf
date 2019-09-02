@@ -14,7 +14,7 @@
 # Based on the ia64 boot/Makefile.
 #
 
-include $(srctree)/arch/arm64/boot/dts/qcom/Makefile
+include $(srctree)/arch/arm64/boot/dts/htc/Makefile
 
 targets := Image Image.gz Image.lz4
 
@@ -48,3 +48,5 @@ install: $(obj)/Image
 zinstall: $(obj)/Image.gz
 	$(CONFIG_SHELL) $(srctree)/$(src)/install.sh $(KERNELRELEASE) \
 	$(obj)/Image.gz System.map "$(INSTALL_PATH)"
+
+subdir- := dts
